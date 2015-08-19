@@ -1,17 +1,13 @@
+require 'sentimental'
+
 class Sentiment 
-
 	# Load the default sentiment dictionaries
-Sentimental.load_defaults
+	Sentimental.load_defaults
+	Sentimental.threshold = 0.0
 
-Sentimental.threshold = 0.1
-
-def sentiment_analyzer(phrase)
-	analyzer = Sentimental.new
-	analyzer.get_sentiment phrase 
-end
-
-
-
-
-
+	def check_sentiment(term)
+		analyzer = Sentimental.new
+		score = analyzer.get_score term
+		return score
+	end
 end
