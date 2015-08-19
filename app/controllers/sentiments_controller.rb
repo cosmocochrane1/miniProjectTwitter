@@ -1,9 +1,6 @@
-class sentiment < ApplicationController
-def search
-	score = Sentiment.sentiment_analyzer(params[:tweet])
-	render json: score 
-end
-
-
-
+class SentimentsController < ApplicationController
+	def search
+		score = SENTIMENT.check_sentiment(params[:tweet])
+		render json: score 
+	end
 end

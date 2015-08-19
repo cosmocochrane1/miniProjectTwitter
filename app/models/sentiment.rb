@@ -1,6 +1,6 @@
 require 'sentimental'
 
-class Sentiment 
+class SENTIMENT 
 	# Load the default sentiment dictionaries
 	Sentimental.load_defaults
 	Sentimental.threshold = 0.0
