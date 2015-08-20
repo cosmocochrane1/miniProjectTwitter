@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # GEMS WE ARE ADDING
 
 # FOR DATE PICKER IN FORM:
-gem 'jquery_datepicker'
+#gem 'jquery_datepicker'
 # SENTIMENT COMPUTER
 gem 'sentimental'
 #TWITTER
