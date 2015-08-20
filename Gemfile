@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 # GEMS WE ARE ADDING
 
 # FOR DATE PICKER IN FORM:
-gem 'jquery_datepicker'
 # SENTIMENT COMPUTER
 gem 'sentimental'
 #TWITTER
@@ -37,7 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'httparty'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

@@ -1,8 +1,11 @@
-class Twitter < ActiverRecord::Base
+# require 'config/initializers/twitter.rb'
 
-	def self.twitter_search(start_date, end_date, word)
 
-		require 'twitter'
+class TWEET < ActiverRecord::Base
+
+	def self.twitter_search(word)
+
+		
 
 		client = Twitter::REST::Client.new do |config|
 		  config.consumer_key         = ENV['CONSUMER_KEY']
@@ -12,7 +15,7 @@ class Twitter < ActiverRecord::Base
 		end 
 
 
-    client.get('https://twitter.com/search.json?q=flight%20%3A%28&src=typd')
+    client.get('https://twitter.com/search?q='+ word +'&src=typd')
 
 	end
 

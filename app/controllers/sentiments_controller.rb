@@ -1,8 +1,10 @@
 class SentimentsController < ApplicationController
 
 	def twittersearch
-		tweets = Twitter.twitter_search(params[:tweet])
-		SENTIMENT.check_sentiment(tweets)
+		tweets = TWEET.twitter_search(params[:tweet])
+		render json: tweets
+
+		# SENTIMENT.check_sentiment(tweets)
 
 	end
 
