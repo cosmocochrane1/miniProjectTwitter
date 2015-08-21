@@ -1,11 +1,8 @@
 # require 'config/initializers/twitter.rb'
 
-
-class TWEET < ActiverRecord::Base
+class Tweet 
 
 	def self.twitter_search(word)
-
-		
 
 		client = Twitter::REST::Client.new do |config|
 		  config.consumer_key         = ENV['CONSUMER_KEY']
@@ -14,11 +11,9 @@ class TWEET < ActiverRecord::Base
 		  config.access_token_secret  = ENV['YOUR_ACCESS_SECRET']
 		end 
 
-
-    client.get('https://twitter.com/search?q='+ word +'&src=typd')
+   		client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word)[:statuses]
 
 	end
-
 
 
 end

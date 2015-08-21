@@ -1,6 +1,6 @@
 require 'sentimental'
 
-class SENTIMENT 
+class Sentiment 
 	# Load the default sentiment dictionaries
 	Sentimental.load_defaults
 	Sentimental.threshold = 0.0
@@ -8,14 +8,15 @@ class SENTIMENT
 	def self.check_sentiment(array)
 		sentiment_scores = []
 
-		array.each do |tweet| tweet.text
+		array.each do |tweet| 
+			puts tweet.class
 			analyzer = Sentimental.new
-			score = analyzer.get_score(tweet.text)
+			score = analyzer.get_score(tweet[:text])
 			sentiment_scores.push(score)
 		end
 		
 		average_sentiment = sentiment_scores.inject{ |sum, value| sum + value }.to_f / sentiment_scores.size
-		return average_sentiment 
+		puts average_sentiment 
 
 	end
 end
