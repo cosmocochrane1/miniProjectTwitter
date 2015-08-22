@@ -1,6 +1,7 @@
 class SentimentsController < ApplicationController
 
 	def twittersearch
+		binding.pry
 		tweets = Tweet.twitter_search(params[:tweet])
 
 		render json: tweets
@@ -9,10 +10,4 @@ class SentimentsController < ApplicationController
 
 	end
 
-
-	def search
-		data_set = 
-		score = Sentiment.check_sentiment(params[:tweet])
-		score 
-	end
 end
