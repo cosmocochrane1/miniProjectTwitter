@@ -2,7 +2,9 @@
 
 class Tweet 
 
-	def self.twitter_search(word, start_date, end_date)
+
+	def self.twitter_search(word)
+
 
 		client = Twitter::REST::Client.new do |config|
 		  config.consumer_key         = ENV['CONSUMER_KEY']
@@ -12,16 +14,22 @@ class Tweet
 		end 
 # - 3 weeks, and then -2 weeks, -1 week
    		# client.get('https://twitter.com/search?q='+ word +'%20until%3A'+ start_date +'%' + word + '%20since%3Aend_date&src=typd')[:statuses]
-   		client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '&until=' + todays_date)[:statuses]
-	end
+   		array_of_tweet_objects = []
 
-	def self.date_finder(hours) 
-	
-		todays_date = DateTime.now 
+   		days = 7
+
+   		7.times do |object| 
+
+
+
+   		todays_date = DateTime.now 
 		todays_date = todays_date.to_s
-		todays_date = todays_date - (hours/24)
+		todays_date = todays_date - days
 		todays_date = todays_date[0..9]
-		hours =- 24
+
+   		client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '&until=' + todays_date)[:statuses]
+   		days =- 1
+
 
 	end
 
