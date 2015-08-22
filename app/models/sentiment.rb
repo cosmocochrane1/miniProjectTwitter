@@ -19,9 +19,7 @@ class Sentiment
 			average_sentiment = sentiment_scores.inject{ |sum, value| sum + value }.to_f / sentiment_scores.size
 			array_of_average_scores.push(average_sentiment)
 		end
-		
-
-
+		puts array_of_average_scores
 	end
 
 

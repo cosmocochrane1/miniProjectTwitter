@@ -5,7 +5,6 @@ class Tweet
 
 	def self.twitter_search(word)
 
-
 		client = Twitter::REST::Client.new do |config|
 		  config.consumer_key         = ENV['CONSUMER_KEY']
 		  config.consumer_secret      = ENV['CONSUMER_SECRET']
@@ -19,17 +18,15 @@ class Tweet
    		days = 7
 
    		7.times do |object| 
+	   		todays_date = DateTime.now 
+			todays_date = todays_date.to_s
+			todays_date = todays_date - days
+			todays_date = todays_date[0..9]
 
-
-
-   		todays_date = DateTime.now 
-		todays_date = todays_date.to_s
-		todays_date = todays_date - days
-		todays_date = todays_date[0..9]
-
-   		client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '&until=' + todays_date)[:statuses]
-   		days =- 1
-
+	   		api_tweet_response = client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '&until=' + todays_date)[:statuses]
+	   		array_of_tweet_objects.push(api_tweet_response)
+	   		days =- 1
+	   	end
 
 	end
 
