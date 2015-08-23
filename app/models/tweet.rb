@@ -1,6 +1,7 @@
 # require 'config/initializers/twitter.rb'
 
 class Tweet 
+<<<<<<< HEAD
     
     def self.twitter_search(word)
 
@@ -28,4 +29,5 @@ class Tweet
 
         return array_of_tweet_objects
     end
+
 end
