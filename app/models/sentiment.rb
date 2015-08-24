@@ -20,8 +20,21 @@ class Sentiment
 			array_of_average_scores.push(average_sentiment)
 		end
 		puts array_of_average_scores
+		binding.pry
 	end
+1, 2
 
+2-1 = 1
+1/2 = 0.5
+0.5*100
+
+number2 - number1 = difference
+(difference/number2)*100 = percentage 
+
+array = [0]
+percent_changes = []
+	array_of_average_scores.map do |value| 
+		array.push(value)
 
 
 end

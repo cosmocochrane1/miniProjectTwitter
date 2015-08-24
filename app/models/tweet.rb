@@ -1,7 +1,7 @@
 # require 'config/initializers/twitter.rb'
 
 class Tweet 
-<<<<<<< HEAD
+
     
     def self.twitter_search(word)
 
