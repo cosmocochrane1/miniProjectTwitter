@@ -11,6 +11,7 @@ gem 'twitter'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'nokogiri'
 # STANDARD GEMS
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
