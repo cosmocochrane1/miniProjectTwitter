@@ -1,3 +1,4 @@
+require 'open-uri'
 class SentimentsController < ApplicationController
 
 	def twittersearch
@@ -5,6 +6,9 @@ class SentimentsController < ApplicationController
 		tweets = Tweet.twitter_search(params[:tweet])
 		render json: tweets
 		Sentiment.check_sentiment(tweets)
+		page = Nokogiri::HTML(open("http://en.wikipedia.org/"))   
+		puts "***********************************"
+		puts page
 	end
 
 	def fox_news
