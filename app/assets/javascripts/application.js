@@ -24,6 +24,8 @@ $(function() {
             data: {
                 term: searchTerm
             }
+        }).fail(function(){
+            alert("FAILED AJAX")
         }).done(function(result){
             debugger;
             //result needs to hold array of arrays of percent changes for each category
