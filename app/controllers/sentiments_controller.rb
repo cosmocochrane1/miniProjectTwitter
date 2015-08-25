@@ -2,9 +2,9 @@ require 'open-uri'
 class SentimentsController < ApplicationController
 
 	def twittersearch
-		binding.pry
 		tweets = Tweet.twitter_search(params[:term])
-		var sent_array = Sentiment.check_sentiment_public(tweets)
+		sent_array = Sentiment.check_sentiment_public(tweets)
+		binding.pry
 		return sent_array
 	end
 
