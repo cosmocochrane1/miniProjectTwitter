@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TwitterSentApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script>
-  	$(function() {
-    	$( ".datepicker" ).datepicker();
-  	});
-  </script>
+
+    <title>TwitterSentApp</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+      	$(function() {
+        	$( ".datepicker" ).datepicker();
+      	});
+    </script>
 </head>
 <body>
+    <div class = "inputForm">
+        <input id="searchTerm" type="text" name="tweet" placeholder="enter search term"><br>
+        <p>Start Date: <input name="start_date" type="text" class="datepicker" id="startDate"></p>
+        <p>End Date: <input name="end_date" type="text" class="datepicker" id="endDate"></p>
+        <button id="searchButton">search</button><br>
+    </div>
 
-<div class = "inputForm">
+    <canvas id="myChart" width="400" height="400"></canvas>
 
-<input id="searchTerm" type="text" name="tweet" placeholder="enter search term"><br>
-<p>Start Date: <input name="start_date" type="text" class="datepicker" id="startDate"></p>
-<p>End Date: <input name="end_date" type="text" class="datepicker" id="endDate"></p>
-<button id="searchButton">search</button><br>
-
-</div>
-
-<canvas id="myChart" width="400" height="400"></canvas>
-
-
-<%= yield %>
+    <%= yield %>
 
 </body>
 </html>
