@@ -29,7 +29,7 @@ def self.check_sentiment_public(array)
            percentage_change_array.push(percent_change)
            i += 1
          end
-         binding.pry
+         #binding.pry
          return percentage_change_array
 
      end
