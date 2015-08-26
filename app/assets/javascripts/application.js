@@ -35,10 +35,10 @@ var renderingGraph = function(searchTerm){
         //result needs to hold array of arrays of percent changes for each category
         var ctx = document.getElementById('myChart').getContext("2d");
         var data = {
-            labels: ["Six days ago", "Five days ago", "Four days ago", "Three days ago", "Two days ago", "Yesterday", "Today"],
+            labels: ["Five days ago", "Four days ago", "Three days ago", "Two days ago", "Yesterday", "Today"],
             datasets: [
                 {
-                    label: "My First dataset",
+                    label: "General Population",
                     fillColor: "rgba(220,220,220,0.2)",
                     strokeColor: "rgba(220,220,220,1)",
                     pointColor: "rgba(220,220,220,1)",
@@ -48,7 +48,7 @@ var renderingGraph = function(searchTerm){
                     data: result[0]
                 },
                 {
-                    label: "My Second dataset",
+                    label: "Fox News",
                     fillColor: "rgba(151,187,205,0.2)",
                     strokeColor: "rgba(151,187,205,1)",
                     pointColor: "rgba(151,187,205,1)",
