@@ -6,18 +6,53 @@ require 'open-uri'
 class Curated
 	#for one day's twitter articles
 
-	#for FOX
 	def self.fox_articles(foxJSON)
-		fox_array_of_article_text = []
+		binding.pry
+		fox_week_array = []
+
 		foxJSON.each do |one_tweet|
-			article_URI = one_tweet.entities.urls.url
-			page = Nokogiri::HTML(open(article_URI))
-			fox_content = page.css('div#content')
-			fox_content.join(" ")
-			fox_array_of_article_text.push(fox_content)
+			fox_day_array = []
+			one_tweet.each do |single_tweet|
+				if single_tweet.length > 0  
+					if single_tweet[:entities][:urls].length > 0
+						article_URI = single_tweet[:entities][:urls][0][:url]
+						puts article_URI
+						page = Nokogiri::HTML(open(article_URI))
+						fox_content = page.css('div[itemprop="articleBody"] p')
+						fox_day_array.push(fox_content.to_s)
+					else 
+						puts "FAIL POINT ONE"
+					end
+				else
+					puts "FAIL POINT TWO"
+				end
+			end
+			fox_week_array.push(fox_day_array)
 		end
-		return fox_array_of_article_text
+		return fox_week_array
 	end
+
+
+
+
+	# def self.fox_articles(foxJSON)
+ #        fox_array_of_article_text = []
+ #        foxJSON.each do |list_of_tweets|
+ #            list_of_tweets.each do |one_tweet|
+ #                article_URI = one_tweet[:entities][:urls][0][:url]
+ #                puts article_URI
+ #                if (article_URI != nil)
+ #                    page = Nokogiri::HTML(open(article_URI))
+ #                    fox_content = page.css('div[itemprop="articleBody"] p')
+ #                    fox_array_of_article_text.push(fox_content.to_s)
+ #                end
+ #            end
+ #        end
+ #        return fox_array_of_article_text
+ #    end
+
+
+
 
 	#FOR NYT
 	def self.nyt_articles(nytJSON)

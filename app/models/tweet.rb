@@ -22,7 +22,7 @@ class Tweet
 	       todays_date = todays_date.to_s
 	       todays_date = todays_date[0..9] #takes first 9 characters of the string
 
-	       api_tweet_response = client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '&until=' + todays_date)[:statuses]
+	       api_tweet_response = client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '&until=' + todays_date + '&lang=en&result_type=popular')[:statuses]
 	       array_of_tweet_objects.push(api_tweet_response)
 	       days -= 1
         end
@@ -39,11 +39,24 @@ class Tweet
           config.access_token_secret  = ENV['YOUR_ACCESS_SECRET']
         end 
 
-        client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '%20from:FoxNews')[:statuses]
+
+        array_of_tweet_objects = []
+        days = 7
+
+        7.times do |object|
+        binding.pry 
+           todays_date = DateTime.now 
+           todays_date = todays_date - days
+           todays_date = todays_date.to_s
+           todays_date = todays_date[0..9] #takes first 9 characters of the string
+           api_tweet_response = client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '%20from:FoxNews&until='+ todays_date + '&lang=en&result_type=popular')[:statuses]
+           array_of_tweet_objects.push(api_tweet_response)
+           puts "***********************"
+           days -= 1   
+        end
+
+        return array_of_tweet_objects
     end
-
-
-
 
 
 end
