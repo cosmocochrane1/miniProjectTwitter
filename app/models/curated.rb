@@ -44,8 +44,9 @@ class Curated
 						article_URI = single_tweet[:entities][:urls][0][:url]
 						puts article_URI
 						page = Nokogiri::HTML(open(article_URI))
-						msnbc_content = page.css('p.story-body-text')
+						msnbc_content = page.css('div.text p')
 						msnbc_day_array.push(msnbc_content.to_s)
+						puts "SOMETHING IS HERE"
 					else 
 						puts "FAIL POINT 2-ONE"
 					end
