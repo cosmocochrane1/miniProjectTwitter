@@ -21,6 +21,11 @@ class SentimentsController < ApplicationController
         render json: allResults
 	end
 
+
+	def nyt
+		
+		
+	end
 	#def fox_news
 		#binding.pry
 		#render json: results#returns the fox tweets 
