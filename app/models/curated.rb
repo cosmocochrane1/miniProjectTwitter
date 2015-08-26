@@ -1,3 +1,4 @@
+
 # at the end of parsing thru the JSON object returned by one day's twitter call,
 # (iterate over an each loop of JSON results and do this function)
 # nyt_array_of_article_text will be full of strings that can be sent to 
