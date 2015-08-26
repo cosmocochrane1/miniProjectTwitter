@@ -44,7 +44,6 @@ class Tweet
         days = 7
 
         7.times do |object|
-        binding.pry 
            todays_date = DateTime.now 
            todays_date = todays_date - days
            todays_date = todays_date.to_s
