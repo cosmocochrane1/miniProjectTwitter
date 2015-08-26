@@ -33,19 +33,19 @@ class Curated
 	end
 
 	#FOR GUARDIAN
-	def self.guardian_articles(guardianJSON)
-		fox_week_array = []
+	def self.msnbc_articles(msnbcJSON)
+		msnbc_week_array = []
 
-		guardianJSON.each do |one_tweet|
-			guardian_day_array = []
+		msnbcJSON.each do |one_tweet|
+			msnbc_day_array = []
 			one_tweet.each do |single_tweet|
 				if single_tweet.length > 0  
 					if single_tweet[:entities][:urls].length > 0
 						article_URI = single_tweet[:entities][:urls][0][:url]
 						puts article_URI
 						page = Nokogiri::HTML(open(article_URI))
-						guardian_content = page.css('div.content__article-body p')
-						guardian_day_array.push(guardian_content.to_s)
+						msnbc_content = page.css('p.story-body-text')
+						msnbc_day_array.push(msnbc_content.to_s)
 					else 
 						puts "FAIL POINT 2-ONE"
 					end
@@ -53,9 +53,9 @@ class Curated
 					puts "FAIL POINT 2-TWO"
 				end
 			end
-			guardian_week_array.push(guardian_day_array)
+			msnbc_week_array.push(msnbc_day_array)
 		end
-		return guardian_week_array
+		return msnbc_week_array
 	end
 
 end
