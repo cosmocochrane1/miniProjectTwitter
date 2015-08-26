@@ -26,3 +26,6 @@ class SentimentsController < ApplicationController
 		#render json: results#returns the fox tweets 
 	#end
 end
+
+
+

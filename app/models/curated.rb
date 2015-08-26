@@ -34,40 +34,6 @@ class Curated
 	end
 
 
-
-
-	# def self.fox_articles(foxJSON)
- #        fox_array_of_article_text = []
- #        foxJSON.each do |list_of_tweets|
- #            list_of_tweets.each do |one_tweet|
- #                article_URI = one_tweet[:entities][:urls][0][:url]
- #                puts article_URI
- #                if (article_URI != nil)
- #                    page = Nokogiri::HTML(open(article_URI))
- #                    fox_content = page.css('div[itemprop="articleBody"] p')
- #                    fox_array_of_article_text.push(fox_content.to_s)
- #                end
- #            end
- #        end
- #        return fox_array_of_article_text
- #    end
-
-
-
-
-	#FOR NYT
-	def self.nyt_articles(nytJSON)
-		nyt_array_of_article_text = []
-		nytJSON.each do |one_tweet|
-			article_URI = one_tweet.entities.urls.url
-			page = Nokogiri::HTML(open(article_URI))
-			nyt_content = page.css('p.story-body-text')
-			nyt_content.join(" ")
-			nyt_array_of_article_text.push(nyt_content)
-		end
-		return nyt_array_of_article_text
-	end
-
 	#FOR GUARDIAN
 	def self.guardian_articles(guardianJSON)
 		guardian_array_of_article_text = []
@@ -79,19 +45,6 @@ class Curated
 			guardian_array_of_article_text.push(guardian_content)
 		end
 		return guardian_array_of_article_text
-	end
-
-	#FOR BLAZE
-	def self.blaze_articles(blazeJSON)
-		blaze_array_of_article_text = []
-		blazeJSON.each do |one_tweet|
-			article_URI = one_tweet.entities.urls.url
-			page = Nokogiri::HTML(open(article_URI))
-			blaze_content = page.css('div#postContent')
-			blaze_content.join(" ")
-			blaze_array_of_article_text.push(blaze_content)
-		end
-		return blaze_array_of_article_text
 	end
 
 end
