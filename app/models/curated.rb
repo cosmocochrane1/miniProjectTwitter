@@ -8,7 +8,6 @@ class Curated
 	#for one day's twitter articles
 
 	def self.fox_articles(foxJSON)
-		binding.pry
 		fox_week_array = []
 
 		foxJSON.each do |one_tweet|
@@ -33,21 +32,38 @@ class Curated
 		return fox_week_array
 	end
 
-
 	#FOR GUARDIAN
 	def self.guardian_articles(guardianJSON)
-		guardian_array_of_article_text = []
+		fox_week_array = []
+
 		guardianJSON.each do |one_tweet|
-			article_URI = one_tweet.entities.urls.url
-			page = Nokogiri::HTML(open(article_URI))
-			guardian_content = page.css('div.content__article-body p')
-			guardian_content.join(" ")
-			guardian_array_of_article_text.push(guardian_content)
+			guardian_day_array = []
+			one_tweet.each do |single_tweet|
+				if single_tweet.length > 0  
+					if single_tweet[:entities][:urls].length > 0
+						article_URI = single_tweet[:entities][:urls][0][:url]
+						puts article_URI
+						page = Nokogiri::HTML(open(article_URI))
+						guardian_content = page.css('div.content__article-body p')
+						guardian_day_array.push(guardian_content.to_s)
+					else 
+						puts "FAIL POINT 2-ONE"
+					end
+				else
+					puts "FAIL POINT 2-TWO"
+				end
+			end
+			guardian_week_array.push(guardian_day_array)
 		end
-		return guardian_array_of_article_text
+		return guardian_week_array
 	end
 
 end
+
+
+
+
+
 
 
 
