@@ -50,6 +50,8 @@ $(function() {
         }
         App.listView.nytfetch(data)
 
+        $(".loadingAdvert").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/Mzze76A-kkk?autoplay=1&cc_load_policy=1" frameborder="0" allowfullscreen></iframe>')
+
         renderingGraph(searchTerm)
     })
 })//end $(function()
