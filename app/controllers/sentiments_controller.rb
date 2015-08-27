@@ -27,7 +27,7 @@ class SentimentsController < ApplicationController
 
 
 	def nytapi
-			search_results = Tweet.nyt
+			search_results = Tweet.nyt(params[:searchTerm])
 			render json: search_results
 	end
 

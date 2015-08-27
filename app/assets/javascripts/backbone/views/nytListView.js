@@ -11,9 +11,12 @@ App.Views.NytapiList = Backbone.View.extend({
 		var article = new App.Views.Nytapi({ model: nytmodel});
 		this.$el.append(article.el);
 	},
-	nytfetch: function() {
-		console.log("fuck");
-		this.collection.fetch({reset: true});
+	nytfetch: function(searchTerm) {
+		console.log(searchTerm);
+		this.collection.fetch({
+			url: '/nytapi',
+			data: searchTerm,
+			reset: true});
 	}
 	
 

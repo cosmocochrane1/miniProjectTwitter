@@ -58,7 +58,7 @@ class Tweet
         return array_of_tweet_objects
     end
 
-    def self.nyt
+    def self.nyt(word)
 
       todays_date = DateTime.now 
            todays_date = todays_date - 7
@@ -67,7 +67,7 @@ class Tweet
            todays_date = todays_date.gsub('-', '')
            puts todays_date
 
-      results = HTTParty.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q=obama&begin_date=' + todays_date + '&api-key=2694cdda099d9cd6957ee2373729f41d:6:72633462')['response']['docs'];
+      results = HTTParty.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q='+ word +'&begin_date=' + todays_date + '&api-key=2694cdda099d9cd6957ee2373729f41d:6:72633462')['response']['docs'];
       
       return results
 

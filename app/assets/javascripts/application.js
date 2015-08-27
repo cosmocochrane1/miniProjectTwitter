@@ -45,7 +45,10 @@ $(function() {
 
     $("#searchButton").click(function(){
         var searchTerm = $("#searchTerm").val();
-        App.listView.nytfetch()
+        var data = {
+            searchTerm: searchTerm
+        }
+        App.listView.nytfetch(data)
 
         renderingGraph(searchTerm)
     })
@@ -67,6 +70,18 @@ var renderingGraph = function(searchTerm){
             labels: ["Five days ago", "Four days ago", "Three days ago", "Two days ago", "Yesterday", "Today"],
             datasets: [
                 {
+                
+                    label: "MSNBC News",
+                    fillColor: "rgba(121,117,165,0.5)",
+                    strokeColor: "rgba(131,137,175,1)",
+                    pointColor: "rgba(131,137,175,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: result[2]
+                },
+                {
+
                     label: "General Population",
                     fillColor: "rgba(220,220,220,0.2)",
                     strokeColor: "rgba(220,220,220,1)",
@@ -85,17 +100,8 @@ var renderingGraph = function(searchTerm){
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(151,187,205,1)",
                     data: result[1]
-                },
-                {
-                    label: "MSNBC News",
-                    fillColor: "red",
-                    strokeColor: "rgba(131,137,175,1)",
-                    pointColor: "rgba(131,137,175,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: result[2]
                 }
+                
             ]
         };
         var options = {
