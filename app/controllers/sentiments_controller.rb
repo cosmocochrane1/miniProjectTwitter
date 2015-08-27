@@ -13,18 +13,33 @@ class SentimentsController < ApplicationController
         # FOR FOX SEARCH
 		tweets = Tweet.fox_news_search(searchTerm) #returns an array of tweet objects form twitter
 		body_text_array = Curated.fox_articles(tweets) #returns the array of text from the web scrape 
-		article_scores = Sentiment.check_sentiment_fox(body_text_array) #this should return an array of percentages 
+		article_scores = Sentiment.check_sentiment_curated(body_text_array) #this should return an array of percentages 
 		allResults.push(JSON.parse(article_scores.to_json))
 
-		
+		# FOR MSNBC SEARCH
+		tweets = Tweet.msnbc_news_search(searchTerm) #returns an array of tweet objects form twitter
+		body_text_array = Curated.msnbc_articles(tweets) #returns the array of text from the web scrape 
+		article_scores = Sentiment.check_sentiment_curated(body_text_array) #this should return an array of percentages 
+		allResults.push(JSON.parse(article_scores.to_json))
+
+		binding.pry
         render json: allResults
 	end
+
 
 	def nytapi
 			search_results = Tweet.nyt
 			render json: search_results
 	end
-	
+
+	#def nyt
+		
+		
+	#end
+	#def fox_news
+		#binding.pry
+		#render json: results#returns the fox tweets 
+	#end
 end
 
 

@@ -85,6 +85,16 @@ var renderingGraph = function(searchTerm){
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(151,187,205,1)",
                     data: result[1]
+                },
+                {
+                    label: "MSNBC News",
+                    fillColor: "rgba(131,137,175,0.2)",
+                    strokeColor: "rgba(131,137,175,1)",
+                    pointColor: "rgba(131,137,175,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: result[2]
                 }
             ]
         };

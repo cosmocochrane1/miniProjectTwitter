@@ -43,6 +43,7 @@ class Tweet
           array_of_tweet_objects = []
           days = 7
 
+
           7.times do |object|
              todays_date = DateTime.now 
              todays_date = todays_date - days
@@ -75,6 +76,29 @@ class Tweet
    
       # results = HTTParty.get('http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + word + '&end_date=' + todays_date '&api-key=b018ea3dd519580dbdd544d41f2f00ca:17:72633462');
 
+    def self.msnbc_news_search(word)
 
+      client = Twitter::REST::Client.new do |config|
+          config.consumer_key         = ENV['CONSUMER_KEY']
+          config.consumer_secret      = ENV['CONSUMER_SECRET']
+          config.access_token         = ENV['YOUR_ACCESS_TOKEN']
+          config.access_token_secret  = ENV['YOUR_ACCESS_SECRET']
+        end 
 
+        array_of_tweet_objects = []
+        days = 7
+        
+        7.times do |object|
+           todays_date = DateTime.now 
+           todays_date = todays_date - days
+           todays_date = todays_date.to_s
+           todays_date = todays_date[0..9] #takes first 9 characters of the string
+           api_tweet_response = client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '%20from:ajam&until='+ todays_date + '&lang=en&result_type=popular')[:statuses]
+           array_of_tweet_objects.push(api_tweet_response)
+           puts "***********************"
+           days -= 1   
+        end
+        binding.pry
+        return array_of_tweet_objects
+    end
 end

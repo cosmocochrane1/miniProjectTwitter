@@ -37,11 +37,9 @@ class Sentiment
 
     end
     	
-    def self.check_sentiment_fox(array)
+    def self.check_sentiment_curated(array)
     	array_of_average_scores = []
-    	
-    	
-
+    
     	array.each do |individual_article|
 	    	day_sentiment_scores = []
     		
@@ -55,10 +53,7 @@ class Sentiment
       		# puts array_of_average_scores
     	end
     	puts array_of_average_scores
-    	
 
     	self.percentage_finder(array_of_average_scores) #calls the percetage finder function above
-
     end 
-
 end
