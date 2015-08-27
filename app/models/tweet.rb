@@ -49,7 +49,7 @@ class Tweet
              todays_date = todays_date - days
              todays_date = todays_date.to_s
              todays_date = todays_date[0..9] #takes first 9 characters of the string
-             api_tweet_response = client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '%20from:FoxNews&until='+ todays_date + '&lang=en&result_type=popular')[:statuses]
+             api_tweet_response = client.get('https://api.twitter.com/1.1/search/tweets.json?q=' + word + '%20filter:links%20from:FoxNews%20OR%20from:ajam&until='+ todays_date + '&lang=en&result_type=popular')[:statuses]
              array_of_tweet_objects.push(api_tweet_response)
              puts "***********************"
              days -= 1   
@@ -87,7 +87,7 @@ class Tweet
 
         array_of_tweet_objects = []
         days = 7
-        
+
         7.times do |object|
            todays_date = DateTime.now 
            todays_date = todays_date - days

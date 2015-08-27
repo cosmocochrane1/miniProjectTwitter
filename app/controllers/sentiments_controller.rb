@@ -22,7 +22,6 @@ class SentimentsController < ApplicationController
 		article_scores = Sentiment.check_sentiment_curated(body_text_array) #this should return an array of percentages 
 		allResults.push(JSON.parse(article_scores.to_json))
 
-		binding.pry
         render json: allResults
 	end
 

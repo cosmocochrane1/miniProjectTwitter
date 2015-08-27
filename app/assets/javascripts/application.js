@@ -88,7 +88,7 @@ var renderingGraph = function(searchTerm){
                 },
                 {
                     label: "MSNBC News",
-                    fillColor: "rgba(131,137,175,0.2)",
+                    fillColor: "red",
                     strokeColor: "rgba(131,137,175,1)",
                     pointColor: "rgba(131,137,175,1)",
                     pointStrokeColor: "#fff",
