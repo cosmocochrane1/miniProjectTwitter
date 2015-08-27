@@ -9,6 +9,8 @@ gem 'sentimental'
 #TWITTER
 gem 'twitter'
 
+gem 'handlebars_assets'
+
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'nokogiri'
@@ -25,8 +27,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
+# gem 'therubyracer', platforms: :ruby 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -41,7 +42,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'httparty'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'backbars'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -56,3 +57,6 @@ group :development, :test do
   gem 'spring'
 end
 
+
+gem 'rails-assets-underscore', source: 'https://rails-assets.org'
+gem 'rails-assets-backbone', source: 'https://rails-assets.org'

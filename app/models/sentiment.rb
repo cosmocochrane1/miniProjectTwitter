@@ -55,7 +55,7 @@ class Sentiment
       		# puts array_of_average_scores
     	end
     	puts array_of_average_scores
-    	binding.pry
+    	
 
     	self.percentage_finder(array_of_average_scores) #calls the percetage finder function above
 

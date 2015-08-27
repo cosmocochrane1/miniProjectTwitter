@@ -16,20 +16,15 @@ class SentimentsController < ApplicationController
 		article_scores = Sentiment.check_sentiment_fox(body_text_array) #this should return an array of percentages 
 		allResults.push(JSON.parse(article_scores.to_json))
 
-
-		binding.pry
+		
         render json: allResults
 	end
 
-
-	def nyt
-		
-		
+	def nytapi
+			search_results = Tweet.nyt
+			render json: search_results
 	end
-	#def fox_news
-		#binding.pry
-		#render json: results#returns the fox tweets 
-	#end
+	
 end
 
 

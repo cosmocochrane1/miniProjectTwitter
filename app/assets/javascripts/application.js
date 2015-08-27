@@ -13,11 +13,40 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require underscore
+//= require backbone
+//= require handlebars
+//= require_self
+//= require_tree ./backbone/routers
+//= require_tree ./backbone/models
+//= require_tree ./backbone/collections
+//= require_tree ./backbone/views
+//= require_tree ./templates
 //= require chart.js
 //= require_tree .
+var App = {
+	Models: {}, 
+	Collections: {}, 
+	Views: {}, 
+	Routers: {},
+    initialize: function() {
+
+            //----- New York Times --------//
+            this.collection = new App.Collections.NytCollection();
+            this.listView = new App.Views.NytapiList({collection: this.collection});
+
+        }
+};
+
+
 $(function() {
+
+    App.initialize()
+
     $("#searchButton").click(function(){
         var searchTerm = $("#searchTerm").val();
+        App.listView.nytfetch()
+
         renderingGraph(searchTerm)
     })
 })//end $(function()
@@ -32,6 +61,7 @@ var renderingGraph = function(searchTerm){
         alert("FAILED AJAX")
     }).done(function(result){
         //result needs to hold array of arrays of percent changes for each category
+
         var ctx = document.getElementById('myChart').getContext("2d");
         var data = {
             labels: ["Five days ago", "Four days ago", "Three days ago", "Two days ago", "Yesterday", "Today"],
@@ -48,7 +78,7 @@ var renderingGraph = function(searchTerm){
                 },
                 {
                     label: "Fox News",
-                    fillColor: "rgba(151,187,205,0.2)",
+                    fillColor: "rgba(151,187,205,0.5)",
                     strokeColor: "rgba(151,187,205,1)",
                     pointColor: "rgba(151,187,205,1)",
                     pointStrokeColor: "#fff",
@@ -94,3 +124,8 @@ var renderingGraph = function(searchTerm){
         debugger;
     })
 }
+
+
+
+
+

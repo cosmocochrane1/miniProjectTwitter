@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+.nyt_api{
+	margin-left:30%;
+	color:white;
+	width:60%;
+	height:500px;
+	overflow-y:scroll;
+}
+
+.nytSingleArticle {
+	font-family: georgia;
+	width:80%;
+	color:white;
+	border-radius: 0.5%;
+}
+
+.nytHeadline {
+	font-size: 15px;
+	font-family: georgia;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+
+}
+.nytAbstract {
+	font-size: 10px;
+	font-family: georgia;
+	color: black;
+}
+
+#myChart{
+	margin-left: 35%;
+	padding-bottom: 5%;
+}
