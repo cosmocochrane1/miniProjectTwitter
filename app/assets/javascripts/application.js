@@ -37,17 +37,23 @@ var App = {
     }
 };
 $(function() {
+
     App.initialize();
+
     $("#searchButton").click(function(){
         $('html, body').animate({scrollTop: $("#page_2").offset().top}, 2000);
         var searchTerm = $("#searchTerm").val();
+
         var data = {
             searchTerm: searchTerm
         };
         App.listView.nytfetch(data);
+
+
         $(".loadingAdvert").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/Mzze76A-kkk?autoplay=1&cc_load_policy=1" frameborder="0" allowfullscreen></iframe>');
         var loadingMessages = ["Fetching data", "Analyzing articles", "Computing sentiments", "Making graph"];
         
+
         for (var i = 0; i < loadingMessages.length; i++){
             let j = i;
             setTimeout(function(){
@@ -57,6 +63,7 @@ $(function() {
                 $(".loadingMessagesDiv").append(temp);
             }, 2000);
         };
+
         renderingGraph(searchTerm);
     });
 })//end $(function()
