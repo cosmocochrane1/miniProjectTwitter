@@ -24,44 +24,44 @@
 //= require_tree ./templates
 //= require chart.js
 //= require_tree .
+'use strict';
 var App = {
-	Models: {}, 
-	Collections: {}, 
-	Views: {}, 
-	Routers: {},
+    Models: {}, 
+    Collections: {}, 
+    Views: {}, 
+    Routers: {},
     initialize: function() {
-
-            //----- New York Times --------//
-            this.collection = new App.Collections.NytCollection();
-            this.listView = new App.Views.NytapiList({collection: this.collection});
-
-        }
+        //----- New York Times --------//
+        this.collection = new App.Collections.NytCollection();
+        this.listView = new App.Views.NytapiList({collection: this.collection});
+    }
 };
-
-
 $(function() {
-
-    App.initialize()
-
+    App.initialize();
     $("#searchButton").click(function(){
-
         $('html, body').animate({scrollTop: $("#page_2").offset().top}, 2000);
         var searchTerm = $("#searchTerm").val();
-
-
-
         var data = {
             searchTerm: searchTerm
-        }
-        App.listView.nytfetch(data)
-
-        $(".loadingAdvert").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/Mzze76A-kkk?autoplay=1&cc_load_policy=1" frameborder="0" allowfullscreen></iframe>')
-
-        renderingGraph(searchTerm)
-    })
+        };
+        App.listView.nytfetch(data);
+        $(".loadingAdvert").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/Mzze76A-kkk?autoplay=1&cc_load_policy=1" frameborder="0" allowfullscreen></iframe>');
+        var loadingMessages = ["Fetching data", "Analyzing articles", "Computing sentiments", "Making graph"];
+        
+        for (var i = 0; i < loadingMessages.length; i++){
+            let j = i;
+            setTimeout(function(){
+                //$('#loadingMessagesDiv').html();
+                var temp = "<h3>" + loadingMessages[j] + "</h3>"
+                console.log(temp);
+                $(".loadingMessagesDiv").append(temp);
+            }, 2000);
+        };
+        renderingGraph(searchTerm);
+    });
 })//end $(function()
 var renderingGraph = function(searchTerm){
-    console.log("Inside rendering graph in app.js") 
+    console.log("Inside rendering graph in app.js"); 
     $.ajax({ 
         url: '/twittersearch', 
         data: {
@@ -72,7 +72,6 @@ var renderingGraph = function(searchTerm){
     }).done(function(result){
         //result needs to hold array of arrays of percent changes for each category
         $('html, body').animate({scrollTop: $("#myChart").offset().top}, 2000);
-
         var ctx = document.getElementById('myChart').getContext("2d");
         var data = {
             labels: ["Five days ago", "Four days ago", "Three days ago", "Two days ago", "Yesterday", "Today"],
@@ -89,7 +88,6 @@ var renderingGraph = function(searchTerm){
                     data: result[2]
                 },
                 {
-
                     label: "General Population",
                     fillColor: "rgba(220,220,220,0.2)",
                     strokeColor: "rgba(220,220,220,1)",
@@ -148,8 +146,3 @@ var renderingGraph = function(searchTerm){
         debugger;
     })
 }
-
-
-
-
-
