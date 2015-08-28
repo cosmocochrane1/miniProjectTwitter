@@ -13,7 +13,10 @@
  *= require_tree .
  *= require_self
  */
-
+body{
+	margin: 0;
+	background: black;
+}
 
 
 .nyt_api{
@@ -22,11 +25,13 @@
 	width:60%;
 	height:500px;
 	overflow-y:scroll;
+	position: absolute;
+	left: 72px;
 }
 
 .nytSingleArticle {
 	font-family: georgia;
-	width:80%;
+	width:70%;
 	color:white;
 	border-radius: 0.5%;
 }
@@ -46,6 +51,111 @@
 }
 
 #myChart{
-	margin-left: 35%;
-	padding-bottom: 5%;
+	margin-left: 20%;
+	padding-bottom: 3%;
+	padding-top: 10%;
+	width: 450px;
+	margin-right:10%;
+	position: absolute;
+	float: right;
+	right: -550;
+	padding-left: 23%;
+}
+
+#entire_page{
+	background: #2c495a;
+	width: 90%;
+	position: relative;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	height: 3000px;
+	padding-top: 5%;
+}
+
+#page_1{
+	background:white;
+	width:90%;
+	position:relative;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	height: 800px;
+	margin-top:;
+	padding-top: 3%;
+
+}
+
+#inputform_div{
+	width: 40%;
+	position:relative;
+	text-align:center;
+	/*margin-left: auto;
+	margin-right: auto;*/
+	height: 300px;
+	margin-top: 25%;
+	display: inline;
+	padding-top: 50%;
+
+}
+
+#searchButton{
+	padding-top: 1.3%;
+	padding-bottom: 1.9%;
+	padding-right: 1%;
+	padding-left: 1%;
+}
+
+.inputForm{
+	display: inline;
+	position:relative;
+}
+
+#searchButton{
+	display: inline;
+}
+
+#searchTerm{
+  padding: 10px;
+  border: none;
+  border-bottom: solid 6px #c9c9c9;
+}
+
+
+#page_2{
+	background:white;
+	width:90%;
+	position:relative;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	height: 800px;
+	margin-top:;
+	padding-top: 3%;
+}
+
+#page_3{
+	background:white;
+	width:90%;
+	position:relative;
+	height: 1200px;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 3%;
+}
+
+#chart_article{
+	width: 40%;
+	display: inline-block;
+	position: absolute;
+	left: 17px;
+}
+
+#times_articles{
+	float: left;
+	position: absolute;
+	left: 0;
+	display: inline-block;
+
 }

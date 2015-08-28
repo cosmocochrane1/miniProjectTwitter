@@ -98,7 +98,7 @@ class Tweet
            puts "***********************"
            days -= 1   
         end
-        binding.pry
+        
         return array_of_tweet_objects
     end
 end

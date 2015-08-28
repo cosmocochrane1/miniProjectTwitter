@@ -44,7 +44,12 @@ $(function() {
     App.initialize()
 
     $("#searchButton").click(function(){
+
+        $('html, body').animate({scrollTop: $("#page_2").offset().top}, 2000);
         var searchTerm = $("#searchTerm").val();
+
+
+
         var data = {
             searchTerm: searchTerm
         }
@@ -66,6 +71,7 @@ var renderingGraph = function(searchTerm){
         alert("FAILED AJAX")
     }).done(function(result){
         //result needs to hold array of arrays of percent changes for each category
+        $('html, body').animate({scrollTop: $("#page_3").offset().top}, 2000);
 
         var ctx = document.getElementById('myChart').getContext("2d");
         var data = {

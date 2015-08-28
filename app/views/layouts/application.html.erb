@@ -13,18 +13,38 @@
     
 </head>
 <body>
-    <div class = "inputForm">
-        <input id="searchTerm" type="text" name="tweet" placeholder="enter search term"><br>
-        <button id="searchButton">search</button><br>
+    <div id="entire_page">
+
+        <div id="page_1">
+            <div id="inputform_div">    
+                <div class = "inputForm">
+                    <input id="searchTerm" placeholder="enter search term">
+
+                    <button  class="myButton" id="searchButton">search</button><br>
+                
+                </div>
+            </div>
+         </div>
+
+         <div id="page_2">
+         <p> Sponsored Ad</p>
+            <div class = "loadingAdvert"> </div>
+
+        </div>
+
+        <div id="page_3">
+            <button id="page3_button"></button>
+            <p>Sentiment Analysis</p>
+            <div id="chart_article">
+                <canvas id="myChart" width="400" height="400"></canvas>
+                <div id="times_articles"></div>
+                <%= yield %>
+
+                <div class='nyt_api'></div>
+            </div>
+       </div>
+
     </div>
-
-    <div class = "loadingAdvert"> </div>
-
-    <canvas id="myChart" width="400" height="400"></canvas>
-    <div id="times_articles"></div>
-    <%= yield %>
-
-    <div class='nyt_api'></div>
 
 </body>
 </html>
