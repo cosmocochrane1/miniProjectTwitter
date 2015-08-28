@@ -1,0 +1,69 @@
+var findPercentDif = function (myArr){
+	myArr.unshift(0);
+	var finishedArray = [];
+
+	for (var i = 0; i < (myArr.length-1); i++){
+		
+		var dif = myArr[i+1] - myArr[i];
+		var percent = (dif/myArr[i+1])*100;
+		finishedArray.push(percent);
+	};
+	return finishedArray;
+};
+
+
+
+def findPercentDif (myArr)
+	myArr.insert(0,0)
+	var finishedArray = []
+
+	for i in 0..7
+		difference = myArr[i+1] - myArr[i]
+		percent = (dif/myArr[i+1])*100;
+		finishedArray.push(percent);
+	end
+	return finishedArray
+end
+
+
+
+------------------------------------------------------
+
+// at the end of parsing thru the JSON object returned by one day's twitter call,
+// (iterate over an each loop of JSON results and do this function)
+// nyt_array_of_article_text will be full of strings that can be sent to 
+// sentiment checker / find average of all sentiments of all of today's articles
+
+for each day, for each tweet object:
+pull out URL and use for nokogiri
+
+for nyt nokogiri
+
+page = Nokogiri::HTML(open("http://en.wikipedia.org/"))
+nyt_content = page.css('p.story-body-text')
+nyt_content.join(" ")
+nyt_array_of_article_text.push(nyt_content)
+
+
+for guardian nokogiri
+
+page = Nokogiri::HTML(open("http://en.wikipedia.org/"))
+guardian_content = page.css('div.content__article-body p')
+guardian_content.join(" ")
+guardian_array_of_article_text.push(guardian_content)
+
+
+for fox nokogiri
+
+page = Nokogiri::HTML(open("http://en.wikipedia.org/"))
+fox_content = page.css('div#content')
+fox_content.join(" ")
+fox_array_of_article_text.push(fox_content)
+
+
+for blaze nokogiri
+
+page = Nokogiri::HTML(open("http://en.wikipedia.org/"))
+blaze_content = page.css('div#postContent')
+blaze_content.join(" ")
+blaze_array_of_article_text.push(blaze_content)
