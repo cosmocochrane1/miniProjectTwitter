@@ -90,8 +90,8 @@ var renderingGraph = function(searchTerm){
                 
                     label: "MSNBC News",
                     fillColor: "rgba(121,117,165,0.5)",
-                    strokeColor: "rgba(131,137,175,1)",
-                    pointColor: "rgba(131,137,175,1)",
+                    strokeColor: "blue",
+                    pointColor: "rgba(220,220,220,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(151,187,205,1)",
@@ -111,8 +111,8 @@ var renderingGraph = function(searchTerm){
                 {
                     label: "Fox News",
                     fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
+                    strokeColor: "#7f0000",
+                    pointColor: "rgba(220,220,220,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(151,187,205,1)",
@@ -125,7 +125,7 @@ var renderingGraph = function(searchTerm){
             ///Boolean - Whether grid lines are shown across the chart
             scaleShowGridLines : true,
             //String - Colour of the grid lines
-            scaleGridLineColor : "rgba(0,0,0,.05)",
+            scaleGridLineColor : "rgba(0,0,0,.5)",
             //Number - Width of the grid lines
             scaleGridLineWidth : 1,
             //Boolean - Whether to show horizontal lines (except X axis)
