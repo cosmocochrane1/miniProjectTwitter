@@ -71,7 +71,7 @@ var renderingGraph = function(searchTerm){
         alert("FAILED AJAX")
     }).done(function(result){
         //result needs to hold array of arrays of percent changes for each category
-        $('html, body').animate({scrollTop: $("#page_3").offset().top}, 2000);
+        $('html, body').animate({scrollTop: $("#myChart").offset().top}, 2000);
 
         var ctx = document.getElementById('myChart').getContext("2d");
         var data = {
