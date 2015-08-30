@@ -16,6 +16,7 @@
     <div id="entire_page">
 
         <div id="page_1">
+        <h1 id="website_title">Poli-Sentiment</h1>
             <div id="inputform_div">    
                 <div class = "inputForm">
                     <input id="searchTerm" placeholder="search a political figure">
@@ -35,7 +36,6 @@
         </div>
 
         <div id="page_3">
-            <button id="page3_button"></button>
             <p>Sentiment Analysis</p>
             <div id="chart_article">
                 <div id ="graph">
@@ -45,6 +45,12 @@
                 <%= yield %>
 
                 <div class='nyt_api'></div>
+
+                <img src="cosmo-naina-legend.png" id="legend"/>
+
+            </div>
+            <div id="button_div">
+              <button id="page3_button">SEARCH ANOTHER</button>
             </div>
        </div>
 

@@ -39,12 +39,19 @@ var App = {
 $(function() {
 
     App.initialize();
+    $("#page3_button").click(function(){
+                $('html, body').animate({scrollTop: $("#page_1").offset().top}, 2000);
+
+    })
+            
 
     $("#searchButton").click(function(){
         $('html, body').animate({scrollTop: $("#page_2").offset().top}, 2000);
+
         $('#graph').empty();
         $('#graph').html('<canvas id="myChart" width="400" height="400"></canvas>');
         var searchTerm = $("#searchTerm").val();
+        searchTerm = encodeURI(searchTerm)
 
         var data = {
             searchTerm: searchTerm
@@ -123,7 +130,7 @@ var renderingGraph = function(searchTerm){
             ///Boolean - Whether grid lines are shown across the chart
             scaleShowGridLines : true,
             //String - Colour of the grid lines
-            scaleGridLineColor : "rgba(0,0,0,.5)",
+            scaleGridLineColor : "rgba(0,0,0,.2)",
             //Number - Width of the grid lines
             scaleGridLineWidth : 1,
             //Boolean - Whether to show horizontal lines (except X axis)
