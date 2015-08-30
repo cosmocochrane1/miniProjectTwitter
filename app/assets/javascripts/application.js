@@ -42,6 +42,8 @@ $(function() {
 
     $("#searchButton").click(function(){
         $('html, body').animate({scrollTop: $("#page_2").offset().top}, 2000);
+        $('#graph').empty();
+        $('#graph').html('<canvas id="myChart" width="400" height="400"></canvas>');
         var searchTerm = $("#searchTerm").val();
 
         var data = {
