@@ -40,9 +40,9 @@ $(function() {
 
     App.initialize();
     $("#page3_button").click(function(){
-                $('html, body').animate({scrollTop: $("#page_1").offset().top}, 2000);
-
-    })
+        $('html, body').animate({scrollTop: $("#page_1").offset().top}, 2000);
+        console.log("AGHHHHHHHH")
+    });
             
 
     $("#searchButton").click(function(){
@@ -62,16 +62,18 @@ $(function() {
         $(".loadingAdvert").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/Mzze76A-kkk?autoplay=1&cc_load_policy=1" frameborder="0" allowfullscreen></iframe>');
         var loadingMessages = ["Fetching data", "Analyzing articles", "Computing sentiments", "Making graph"];
         
-
-        for (var i = 0; i < loadingMessages.length; i++){
-            let j = i;
-            setTimeout(function(){
-                //$('#loadingMessagesDiv').html();
-                var temp = "<h3>" + loadingMessages[j] + "</h3>"
-                console.log(temp);
-                $(".loadingMessagesDiv").append(temp);
-            }, 2000);
-        };
+        setTimeout(function(){
+            for (var i = 0; i < loadingMessages.length; i++){
+                var j = i;
+                setTimeout(function(){
+                    //$('#loadingMessagesDiv').html();
+                    var temp = "<h3>" + loadingMessages[j] + "</h3>"
+                    console.log(temp);
+                    $(".loadingMessagesDiv").append(temp);
+                }, 5000);
+            };
+            
+        }, 5000);
 
         renderingGraph(searchTerm);
     });
