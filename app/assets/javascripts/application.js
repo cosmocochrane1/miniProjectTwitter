@@ -37,17 +37,15 @@ var App = {
     }
 };
 $(function() {
-
     App.initialize();
     $("#page3_button").click(function(){
         $('html, body').animate({scrollTop: $("#page_1").offset().top}, 2000);
         console.log("AGHHHHHHHH")
     });
             
-
     $("#searchButton").click(function(){
         $('html, body').animate({scrollTop: $("#page_2").offset().top}, 2000);
-
+        $(".loadingMessagesDiv").empty();
         $('#graph').empty();
         $('#graph').html('<canvas id="myChart" width="400" height="400"></canvas>');
         var searchTerm = $("#searchTerm").val();
@@ -58,26 +56,25 @@ $(function() {
         };
         App.listView.nytfetch(data);
 
-
         $(".loadingAdvert").html('<iframe width="560" height="315" src="https://www.youtube.com/embed/Mzze76A-kkk?autoplay=1&cc_load_policy=1" frameborder="0" allowfullscreen></iframe>');
         var loadingMessages = ["Fetching data", "Analyzing articles", "Computing sentiments", "Making graph"];
         
-        setTimeout(function(){
-            for (var i = 0; i < loadingMessages.length; i++){
-                var j = i;
-                setTimeout(function(){
-                    //$('#loadingMessagesDiv').html();
-                    var temp = "<h3>" + loadingMessages[j] + "</h3>"
-                    console.log(temp);
-                    $(".loadingMessagesDiv").append(temp);
-                }, 5000);
-            };
-            
-        }, 5000);
+        for (var i = 0; i < loadingMessages.length; i++){
+          renderLoading(i)
+        };
 
         renderingGraph(searchTerm);
     });
-})//end $(function()
+});//end $(function()
+
+var renderLoading = function (index){
+    setTimeout(function  () {
+        var loadingMessages = ["Fetching data", "Analyzing articles", "Computing sentiments", "Making graph"];
+        var temp = "<h3>" + loadingMessages[index] + "</h3>"
+        console.log(temp);
+        $(".loadingMessagesDiv").append(temp);
+    }, index * 6000)
+};
 var renderingGraph = function(searchTerm){
     console.log("Inside rendering graph in app.js"); 
     $.ajax({ 
@@ -95,19 +92,8 @@ var renderingGraph = function(searchTerm){
             labels: ["Five days ago", "Four days ago", "Three days ago", "Two days ago", "Yesterday", "Today"],
             datasets: [
                 {
-                
-                    label: "MSNBC News",
-                    fillColor: "rgba(121,117,165,0.5)",
-                    strokeColor: "blue",
-                    pointColor: "rgba(220,220,220,1)",
-                    pointStrokeColor: "#fff",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(151,187,205,1)",
-                    data: result[2]
-                },
-                {
                     label: "General Population",
-                    fillColor: "rgba(220,220,220,0.2)",
+                    fillColor: "rgba(220,220,220,0)",
                     strokeColor: "#808080",
                     pointColor: "rgba(220,220,220,1)",
                     pointStrokeColor: "#fff",
@@ -117,13 +103,23 @@ var renderingGraph = function(searchTerm){
                 },
                 {
                     label: "Fox News",
-                    fillColor: "rgba(151,187,205,0.5)",
-                    strokeColor: "#7f0000",
+                    fillColor: "rgba(151,187,205,0)",
+                    strokeColor: "#BD1414",
                     pointColor: "rgba(220,220,220,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(151,187,205,1)",
                     data: result[1]
+                },
+                {
+                    label: "The Guardian News",
+                    fillColor: "rgba(121,117,165,0)",
+                    strokeColor: "blue",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: result[2]
                 }
                 
             ]
@@ -161,6 +157,5 @@ var renderingGraph = function(searchTerm){
             legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
         };
         var chart = new Chart(ctx).Line(data, options);
-        debugger;
     })
 }

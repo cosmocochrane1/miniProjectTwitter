@@ -17,9 +17,14 @@ class Curated
 					if single_tweet[:entities][:urls].length > 0
 						article_URI = single_tweet[:entities][:urls][0][:url]
 						puts article_URI
-						page = Nokogiri::HTML(open(article_URI))
-						fox_content = page.css('div[itemprop="articleBody"] p')
-						fox_day_array.push(fox_content.to_s)
+						begin
+							page = Nokogiri::HTML(HTTParty.get(article_URI))
+						rescue
+							puts "NOKOGIRI RESCUED !!!"
+						else
+							fox_content = page.css('div[itemprop="articleBody"] p')
+							fox_day_array.push(fox_content.to_s)
+						end
 					else 
 						puts "FAIL POINT ONE"
 					end
@@ -43,10 +48,14 @@ class Curated
 					if single_tweet[:entities][:urls].length > 0
 						article_URI = single_tweet[:entities][:urls][0][:url]
 						puts article_URI
-						page = Nokogiri::HTML(open(article_URI))
-						msnbc_content = page.css('div.text p')
-						msnbc_day_array.push(msnbc_content.to_s)
-						puts "SOMETHING IS HERE"
+						begin
+							page = Nokogiri::HTML(open(article_URI))
+						rescue
+							puts "MSNBC RESCUE"
+						else
+							msnbc_content = page.css('div.content__article-body p')
+							msnbc_day_array.push(msnbc_content.to_s)
+						end
 					else 
 						puts "FAIL POINT 2-ONE"
 					end

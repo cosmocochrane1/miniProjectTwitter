@@ -19,7 +19,7 @@ class SentimentsController < ApplicationController
 		# FOR MSNBC SEARCH
 		tweets = Tweet.msnbc_news_search(searchTerm) #returns an array of tweet objects form twitter
 		body_text_array = Curated.msnbc_articles(tweets) #returns the array of text from the web scrape 
-		article_scores = Sentiment.check_sentiment_curated(body_text_array) #this should return an array of percentages 
+		article_scores = Sentiment.liberal_check_sentiment_curated(body_text_array) #this should return an array of percentages 
 		allResults.push(JSON.parse(article_scores.to_json))
 
         render json: allResults
