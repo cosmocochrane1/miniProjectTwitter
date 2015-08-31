@@ -41,7 +41,10 @@ body{
 }
 
 #button_div{
-	width:100%;
+	width:20%;
+	height:2%;
+	margin-left: 40%;
+
 /*	height:100%;
 */}
 
