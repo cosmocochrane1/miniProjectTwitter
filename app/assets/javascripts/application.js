@@ -106,7 +106,7 @@ var renderingGraph = function(searchTerm){
                 {
                     label: "General Population",
                     fillColor: "rgba(220,220,220,0.2)",
-                    strokeColor: "rgba(220,220,220,1)",
+                    strokeColor: "#808080",
                     pointColor: "rgba(220,220,220,1)",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
