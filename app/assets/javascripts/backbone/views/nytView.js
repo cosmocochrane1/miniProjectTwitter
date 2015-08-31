@@ -10,6 +10,8 @@ App.Views.Nytapi = Backbone.View.extend({
 		console.log('RENDER WAS CALLED!')
 		jsonObject = this.model.toJSON();
 		jsonObject.changedDate = jsonObject.pub_date.slice(0,10) 
+		jsonObject.headline.main = decodeURI(jsonObject.headline.main);
+		jsonObject.snippet = decodeURI(jsonObject.snippet)
 		this.$el.html(this.template(jsonObject));
 		$('body').append(this.$el);
 	}
