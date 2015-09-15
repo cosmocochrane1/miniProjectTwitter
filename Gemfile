@@ -20,10 +20,13 @@ gem 'nokogiri'
 gem 'rails', '4.2.3'
 # Use sqlite3 as the database for Active Record
 
-group :production do
+group :production, :staging do
   gem "pg"
 end
 
+group :development, :test do
+  gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
