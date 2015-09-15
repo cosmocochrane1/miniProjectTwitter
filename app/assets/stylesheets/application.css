@@ -22,12 +22,12 @@ body{
 #website_title{
 	font-size: 50px;
 	font-family: helvetica; 
-	color: black;
+	color: #4C4D8C;
 
 }
 
 #page3_button{
-	background: black;
+	background: #4C4D8C;
 	color:white;
 	font-size: 10px;
 	border: none;
@@ -137,7 +137,7 @@ body{
 	height: 300px;
 	display: inline;
 	right: 44%;
-	top: 15%;
+	top: 18%;
 	padding-top: 5%;
 
 }
@@ -152,7 +152,7 @@ body{
 
 #searchButton{
 	display: inline-block;
-	background: black;
+	background: #4C4D8C;
 	color:white;
 	font-size: 15px;
 	border: none;
@@ -189,6 +189,10 @@ body{
 	margin-top:;
 	padding-top: 3%;
 }
+.loadingMessagesDiv h3{
+
+
+} 
 
 #page_3{
 	background: #d1e0de	;

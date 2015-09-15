@@ -4,7 +4,7 @@ class SentimentsController < ApplicationController
 	def twittersearch
         allResults = []
         searchTerm = params[:term]
-
+        
         #FOR TWITTER SEARCH
         tweets = Tweet.twitter_search(searchTerm)
         sent_array = Sentiment.check_sentiment_public(tweets)

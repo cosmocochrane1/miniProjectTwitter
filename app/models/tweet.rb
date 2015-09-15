@@ -97,6 +97,7 @@ class Tweet
            array_of_tweet_objects.push(api_tweet_response)
            puts "***********************"
            days -= 1   
+        
         end
         
         return array_of_tweet_objects

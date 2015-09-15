@@ -39,7 +39,7 @@ var App = {
 $(function() {
     App.initialize();
     $("#page3_button").click(function(){
-        $('html, body').animate({scrollTop: $("#page_1").offset().top}, 2000);
+        $('html, body').animate({scrollTop: $("#page_1").offset().top}, 100);
         console.log("AGHHHHHHHH")
     });
             
@@ -73,7 +73,7 @@ var renderLoading = function (index){
         var temp = "<h3>" + loadingMessages[index] + "</h3>"
         console.log(temp);
         $(".loadingMessagesDiv").append(temp);
-    }, index * 6000)
+    }, index * 8000)
 };
 var renderingGraph = function(searchTerm){
     console.log("Inside rendering graph in app.js"); 
