@@ -49,6 +49,7 @@ $(function() {
         $('#graph').empty();
         $('#graph').html('<canvas id="myChart" width="400" height="400"></canvas>');
         var searchTerm = $("#searchTerm").val();
+        $("#searchTerm").val('') 
         searchTerm = encodeURI(searchTerm)
 
         var data = {
