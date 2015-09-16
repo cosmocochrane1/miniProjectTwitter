@@ -84,7 +84,8 @@ var renderingGraph = function(searchTerm){
             term: searchTerm
         }
     }).fail(function(){
-        alert("FAILED AJAX")
+        $('html, body').animate({scrollTop: $("#myChart").offset().top}, 2000);
+        console.log("failed");
     }).done(function(result){
         //result needs to hold array of arrays of percent changes for each category
         $('html, body').animate({scrollTop: $("#myChart").offset().top}, 2000);
