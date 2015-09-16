@@ -74,7 +74,7 @@ var renderLoading = function (index){
         var temp = "<h3>" + loadingMessages[index] + "</h3>"
         console.log(temp);
         $(".loadingMessagesDiv").append(temp);
-    }, index * 8000)
+    }, index * 10000)
 };
 var renderingGraph = function(searchTerm){
     console.log("Inside rendering graph in app.js"); 
@@ -82,7 +82,8 @@ var renderingGraph = function(searchTerm){
         url: '/twittersearch', 
         data: {
             term: searchTerm
-        }
+        },
+        timeout: 0,
     }).fail(function(){
         $('html, body').animate({scrollTop: $("#myChart").offset().top}, 2000);
         console.log("failed");
