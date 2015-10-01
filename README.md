@@ -1,6 +1,6 @@
 # miniProjectTwitter
 
-sentiment-checker.heroku.com
+http://www.sentiment-checker.heroku.com
 
 testing hi cosmo-
 
